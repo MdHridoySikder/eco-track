@@ -14,7 +14,7 @@ const Navbar = () => {
       <div className="container mx-auto px-4 flex items-center justify-between">
         {/* Left: Logo */}
         <div className="navbar-start flex items-center gap-1">
-          <div className="w-10 h-10 rounded-full overflow-hidden">
+          <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-green-700">
             <img
               src="/logo.png"
               alt="EcoTrack Logo"
@@ -52,7 +52,7 @@ const Navbar = () => {
         <div className="navbar-end hidden lg:flex">
           <NavLink
             to="/login"
-            className="btn btn-sm btn-success text-white hover:bg-green-700 transition-colors"
+            className="btn btn-sm btn-success text-white hover:bg-green-700 bg-green-600"
           >
             <FaUserPlus /> Login
           </NavLink>

@@ -1,11 +1,10 @@
-import { Mail, PhoneIncoming } from "lucide";
 import React from "react";
 import { BiPhoneIncoming } from "react-icons/bi";
 import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
-import { LiaLocationArrowSolid } from "react-icons/lia";
-import { MdAddReaction, MdEmail } from "react-icons/md";
+
+import { MdEmail } from "react-icons/md";
 import { PiAddressBookThin } from "react-icons/pi";
-import { RiMvAiLine } from "react-icons/ri";
+
 import { Link, NavLink } from "react-router";
 
 const Footer = () => {
@@ -17,7 +16,7 @@ const Footer = () => {
 
         <div>
           <div className=" flex items-center gap-1">
-            <div className="w-10 h-10 rounded-full overflow-hidden">
+            <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-green-700">
               <img
                 src="/logo.png"
                 alt="EcoTrack Logo"
@@ -110,7 +109,7 @@ const Footer = () => {
 
       {/* Bottom Line */}
       <div className="border-t border-gray-800  mt-12 pt-4 text-center text-sm text-gray-500">
-        © 2025 EcoTrack | All rights reserved.
+        © 2026 EcoTrack | All rights reserved.
       </div>
     </footer>
   );
