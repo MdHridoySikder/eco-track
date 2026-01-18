@@ -9,7 +9,7 @@ export default function SlideUp({ children }) {
       ([entry]) => {
         if (entry.isIntersecting) {
           setShow(true);
-          observer.disconnect(); // Animate only once
+          observer.disconnect();
         }
       },
       { threshold: 0.2 },
