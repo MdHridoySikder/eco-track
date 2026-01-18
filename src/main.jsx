@@ -7,6 +7,10 @@ import RootLayOut from "./LayOut/RootLayOut";
 import Home from "./Pages/Home";
 import Challenges from "./Pages/Challenges";
 import MyActivities from "./Pages/MyActivities";
+import AuthProvider from "./Context/AuthProvider";
+import { ToastContainer } from "react-toastify";
+import Login from "./Pages/Login";
+import Register from "./Pages/Register";
 
 const router = createBrowserRouter([
   {
@@ -29,12 +33,23 @@ const router = createBrowserRouter([
         path: "/my-activities",
         element: <MyActivities></MyActivities>,
       },
+      {
+        path: "/Login",
+        element: <Login></Login>,
+      },
+      {
+        path: "/Register",
+        element: <Register></Register>,
+      },
     ],
   },
 ]);
 
 createRoot(document.getElementById("root")).render(
-  <StrictMode>
-    <RouterProvider router={router} />,
-  </StrictMode>,
+  <AuthProvider>
+    <StrictMode>
+      <RouterProvider router={router} />,
+      <ToastContainer />
+    </StrictMode>
+  </AuthProvider>,
 );
