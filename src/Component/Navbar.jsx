@@ -106,12 +106,12 @@ const Navbar = () => {
             <NavLink
               to="/Login"
               className={({ isActive }) =>
-                `flex items-center gap-1 px-4 py-1 border-2 border-green-700 text-green-700 font-semibold rounded-sm transition-colors duration-300
-        ${isActive ? "bg-green-700 text-white" : "hover:bg-green-50"}`
+                `group flex items-center gap-1 px-4 py-1 border-2 border-green-700 text-green-700 font-semibold rounded-sm transition-colors duration-300
+     ${isActive ? "bg-green-700 text-white" : "hover:bg-green-50"}`
               }
             >
               Login
-              <FaPlus className="w-4 h-4" />
+              <FaPlus className="w-4 h-4 transition-transform duration-300 group-hover:rotate-90" />
             </NavLink>
           )}
         </div>
