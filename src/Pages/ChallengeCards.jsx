@@ -45,7 +45,7 @@ const ChallengeCards = ({ challenges }) => {
 
           {/* CTA Button */}
           <Link
-            to=""
+            to={`/ChallengesDetails/${challenges._id}`}
             className="mt-3 inline-flex w-full items-center justify-center gap-2 px-4 py-2 text-sm font-bold text-green-800 border-2 border-green-700 rounded-full hover:bg-green-700 hover:text-white transition-all duration-300"
           >
             Challenge Details

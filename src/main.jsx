@@ -11,6 +11,7 @@ import AuthProvider from "./Context/AuthProvider";
 import { ToastContainer } from "react-toastify";
 import Login from "./Pages/Login";
 import Register from "./Pages/Register";
+import ChallengesDetails from "./Pages/ChallengesDetails";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,19 @@ const router = createBrowserRouter([
       {
         path: "/my-activities",
         element: <MyActivities></MyActivities>,
+      },
+      {
+        path: "/ChallengesDetails/:id",
+        element: <ChallengesDetails />,
+        loader: async ({ params }) => {
+          const res = await fetch(
+            `http://localhost:3000/challenges/${params.id}`,
+          );
+          if (!res.ok) {
+            throw new Response("Not Found", { status: 404 });
+          }
+          return res.json();
+        },
       },
       {
         path: "/Login",
