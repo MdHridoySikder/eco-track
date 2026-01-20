@@ -6,12 +6,16 @@ import { RouterProvider } from "react-router/dom";
 import RootLayOut from "./LayOut/RootLayOut";
 import Home from "./Pages/Home";
 import Challenges from "./Pages/Challenges";
-import MyActivities from "./Pages/MyActivities";
+
 import AuthProvider from "./Context/AuthProvider";
 import { ToastContainer } from "react-toastify";
 import Login from "./Pages/Login";
 import Register from "./Pages/Register";
 import ChallengesDetails from "./Pages/ChallengesDetails";
+
+import MyActivities from "./Pages/MyActivities";
+import PrivateRoute from "./PrivateRouter/PrivaateRoute";
+import Update from "./Pages/Update";
 
 const router = createBrowserRouter([
   {
@@ -32,10 +36,6 @@ const router = createBrowserRouter([
         loader: () => fetch("http://localhost:3000/challenges"),
       },
       {
-        path: "/my-activities",
-        element: <MyActivities></MyActivities>,
-      },
-      {
         path: "/ChallengesDetails/:id",
         element: <ChallengesDetails />,
         loader: async ({ params }) => {
@@ -48,6 +48,30 @@ const router = createBrowserRouter([
           return res.json();
         },
       },
+      {
+        path: "/my-activities",
+        element: (
+          <PrivateRoute>
+            <MyActivities></MyActivities>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/update/:id",
+        element: (
+          <PrivateRoute>
+            <Update />
+          </PrivateRoute>
+        ),
+        loader: async ({ params }) => {
+          const res = await fetch(
+            `http://localhost:3000/challenges/${params.id}`,
+          );
+          return res.json();
+        },
+        hydrateFallbackElement: <p>Loading update...</p>,
+      },
+
       {
         path: "/Login",
         element: <Login></Login>,
@@ -63,7 +87,15 @@ const router = createBrowserRouter([
 createRoot(document.getElementById("root")).render(
   <AuthProvider>
     <StrictMode>
-      <RouterProvider router={router} />,
+      <RouterProvider
+        router={router}
+        fallbackElement={
+          <div className="text-center mt-20">
+            <span className="loading loading-spinner loading-lg"></span>
+          </div>
+        }
+      />
+      ,
       <ToastContainer />
     </StrictMode>
   </AuthProvider>,

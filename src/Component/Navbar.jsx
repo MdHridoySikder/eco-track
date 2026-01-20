@@ -60,11 +60,13 @@ const Navbar = () => {
                 Challenges
               </NavLink>
             </li>
-            <li>
-              <NavLink to="/my-activities" className={linkClass}>
-                My Activities
-              </NavLink>
-            </li>
+            {user ? (
+              <li>
+                <NavLink to="/my-activities" className={linkClass}>
+                  Add Challenges
+                </NavLink>
+              </li>
+            ) : null}
           </ul>
         </div>
 
@@ -136,11 +138,13 @@ const Navbar = () => {
                   Challenges
                 </NavLink>
               </li>
-              <li>
-                <NavLink to="/my-activities" className={linkClass}>
-                  My Activities
-                </NavLink>
-              </li>
+              {user ? (
+                <li>
+                  <NavLink to="/my-activities" className={linkClass}>
+                    Add Challenges
+                  </NavLink>
+                </li>
+              ) : null}
 
               {/* Right */}
               <div className="navbar-end">

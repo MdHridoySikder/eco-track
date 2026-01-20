@@ -6,3 +6,15 @@
   <FaPlus className="w-4 h-4" />
 </Link> */
 }
+
+{
+  /* <div className="relative min-h-screen ">
+     
+      
+        <div
+          className="absolute inset-0 bg-cover bg-center filter blur-sm"
+          style={{
+            backgroundImage: "url('/details.png')",
+          }}
+        ></div> */
+}

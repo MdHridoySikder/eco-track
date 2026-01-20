@@ -1,16 +1,20 @@
 import React, { useEffect, useState } from "react";
 import ChallengeCards from "./ChallengeCards";
 import { Link } from "react-router";
+import { FaPlus } from "react-icons/fa";
 
 const Home = () => {
   const [homeChallenges, setHomeChallenges] = useState([]);
 
-  useEffect(() => {
-    fetch("http://localhost:3000/challenges/home")
-      .then((res) => res.json())
-      .then((data) => setHomeChallenges(data))
-      .catch((err) => console.error(err));
-  }, []);
+  fetch("http://localhost:3000/challenges/home")
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error("Failed to fetch challenges");
+      }
+      return res.json();
+    })
+    .then((data) => setHomeChallenges(data))
+    .catch((err) => console.error(err.message));
 
   return (
     <div>
@@ -33,9 +37,10 @@ const Home = () => {
         <div className="text-center mb-10">
           <Link
             to="/challenges"
-            className="inline-block px-6 py-2 border-2 border-green-700 text-green-700 font-semibold rounded-md hover:bg-green-50 transition"
+            className="mt-3 inline-flex  items-center justify-center gap-2 px-4 py-2 text-sm font-bold text-green-800 border-2 border-green-700 rounded-full hover:bg-green-700 hover:text-white transition-all duration-300"
           >
             View All Challenges
+            <FaPlus className="w-3.5 h-3.5 group-hover:rotate-90 transition-transform duration-300" />
           </Link>
         </div>
       </div>

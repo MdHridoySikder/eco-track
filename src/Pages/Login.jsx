@@ -1,11 +1,8 @@
-import React, { useContext } from "react";
-import { Link, useNavigate } from "react-router";
-
-import { useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { Link, useNavigate, useLocation } from "react-router";
 import { GoogleAuthProvider } from "firebase/auth";
 import { toast } from "react-toastify";
 import { AuthContext } from "../Context/AuthContext";
-import { useLocation } from "react-router";
 import { Globe2, Leaf, Wind } from "lucide-react";
 
 const Login = () => {
@@ -13,9 +10,16 @@ const Login = () => {
 
   const { signInWithEmailAndPasswordfunc, signInWithPopupfunc, user } =
     useContext(AuthContext);
-  const location = useLocation();
-  const from = location.state || "/";
+
   const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+
+  useEffect(() => {
+    if (user) {
+      navigate("/", { replace: true });
+    }
+  }, [user, navigate]);
 
   const handleSignin = (e) => {
     e.preventDefault();
@@ -27,8 +31,7 @@ const Login = () => {
     signInWithEmailAndPasswordfunc(email, password)
       .then(() => {
         toast.success("Login successful ");
-        navigate(from);
-        // demo API call
+        navigate(from, { replace: true });
         setTimeout(() => {
           setLoading(false);
         }, 2000);
@@ -40,27 +43,19 @@ const Login = () => {
   };
 
   const handleGoogle = () => {
+    setLoading(true);
     signInWithPopupfunc()
       .then((result) => {
-        // This gives you a Google Access Token. You can use it to access the Google API.
         const credential = GoogleAuthProvider.credentialFromResult(result);
-        const token = credential.accessToken;
-        // The signed-in user info.
+        const token = credential?.accessToken;
         const user = result.user;
-        navigate(from);
-        // IdP data available using getAdditionalUserInfo(result)
-        // ...
+        toast.success("Login successful with Google");
+        navigate(from, { replace: true });
       })
       .catch((error) => {
-        // Handle Errors here.
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        // The email of the user's account used.
-        const email = error.customData.email;
-        // The AuthCredential type that was used.
-        const credential = GoogleAuthProvider.credentialFromError(error);
-        // ...
-      });
+        toast.error(error.message);
+      })
+      .finally(() => setLoading(false));
   };
 
   console.log(user);
@@ -79,7 +74,7 @@ const Login = () => {
       <div className="relative z-10 w-full max-w-sm">
         <div className="rounded-[32px] bg-gradient-to-br from-white/15 to-white/5 backdrop-blur-3xl border border-white/20 shadow-[0_30px_90px_rgba(0,0,0,0.5)] p-6">
           {/* Logo */}
-          <div className="flex justify-center text-center  items-center gap-1">
+          <div className="flex justify-center text-center items-center gap-1">
             <div className="w-15 h-15 rounded-full overflow-hidden border-2 border-green-700">
               <img src="/logo1.png" alt="EcoTrack Logo" />
             </div>
@@ -138,10 +133,12 @@ const Login = () => {
                 )}
               </button>
             </div>
+
             {/* Google */}
             <button
+              type="button"
               onClick={handleGoogle}
-              className="btn bg-white text-black border-[#e5e5e5]"
+              className="btn w-full rounded-full bg-gradient-to-r from-lime-300 via-emerald-400 to-green-500 text-green-950 hover:scale-105 "
             >
               <svg
                 aria-label="Google logo"
