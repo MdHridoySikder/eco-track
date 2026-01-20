@@ -3,6 +3,7 @@ import React, { useContext } from "react";
 import { FaPlus, FaUserPlus } from "react-icons/fa";
 import { NavLink } from "react-router";
 import { AuthContext } from "../Context/AuthContext";
+import { CopyPlus, HousePlus, Signpost } from "lucide-react";
 
 const Navbar = () => {
   const { user, signOutfunc, setUser, loading } = useContext(AuthContext);
@@ -52,17 +53,26 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px- gap-3">
             <li>
               <NavLink to="/" className={linkClass}>
+                <HousePlus className="w-4 h-4" />
                 Home
               </NavLink>
             </li>
             <li>
               <NavLink to="/challenges" className={linkClass}>
+                <Signpost className="w-4 h-4" />
                 Challenges
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/my-activities" className={linkClass}>
+                <CopyPlus className="w-4 h-4" />
+                My Challenges
               </NavLink>
             </li>
             {user ? (
               <li>
-                <NavLink to="/my-activities" className={linkClass}>
+                <NavLink to="/add-activities" className={linkClass}>
+                  <CopyPlus className="w-4 h-4" />
                   Add Challenges
                 </NavLink>
               </li>

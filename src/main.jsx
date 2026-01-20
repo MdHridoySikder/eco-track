@@ -13,9 +13,10 @@ import Login from "./Pages/Login";
 import Register from "./Pages/Register";
 import ChallengesDetails from "./Pages/ChallengesDetails";
 
-import MyActivities from "./Pages/MyActivities";
 import PrivateRoute from "./PrivateRouter/PrivaateRoute";
 import Update from "./Pages/Update";
+import AddActivities from "./Pages/AddActivities";
+import MyActivities from "./Pages/MyActivities/MyActivities";
 
 const router = createBrowserRouter([
   {
@@ -47,6 +48,14 @@ const router = createBrowserRouter([
           }
           return res.json();
         },
+      },
+      {
+        path: "/add-activities",
+        element: (
+          <PrivateRoute>
+            <AddActivities></AddActivities>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/my-activities",

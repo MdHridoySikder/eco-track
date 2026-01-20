@@ -4,7 +4,7 @@ import { FaEdit } from "react-icons/fa";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const MyActivities = () => {
+const AddActivities = () => {
   const { user } = useContext(AuthContext);
 
   const handleSubmit = (e) => {
@@ -171,4 +171,4 @@ const MyActivities = () => {
   );
 };
 
-export default MyActivities;
+export default AddActivities;

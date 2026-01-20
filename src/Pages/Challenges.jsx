@@ -1,6 +1,8 @@
 import React from "react";
 import { Link, useLoaderData } from "react-router";
 import ChallengeCards from "./ChallengeCards";
+import { FaPlus } from "react-icons/fa";
+import { ArrowBigLeft, ArrowBigLeftDash, MoveLeft } from "lucide-react";
 
 const Challenges = () => {
   const data = useLoaderData();
@@ -47,6 +49,16 @@ const Challenges = () => {
         {data.map((challenges) => (
           <ChallengeCards key={challenges._id} challenges={challenges} />
         ))}
+      </div>
+      {/* View All Button */}
+      <div className="text-center mt-5">
+        <Link
+          to="/Home"
+          className="mt-3 inline-flex  items-center justify-center gap-2 px-4 py-2 text-sm font-bold text-green-800 border-2 border-green-700 rounded-full hover:bg-green-700 hover:text-white transition-all duration-300"
+        >
+          <MoveLeft className="w-5 h-5 group-hover:rotate-90 transition-transform duration-300" />
+          Go Home
+        </Link>
       </div>
     </div>
   );
