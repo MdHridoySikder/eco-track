@@ -22,6 +22,8 @@ import Loader from "./Component/Loader";
 import RecentTips from "./Pages/RecentTips";
 import UpcomingEvents from "./Pages/UpcomingEvents";
 
+import FourRecentTips from "./Pages/FourRecentTips";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -94,6 +96,7 @@ const router = createBrowserRouter([
         element: <UpcomingEvents></UpcomingEvents>,
         loader: () => fetch("http://localhost:3000/events"),
       },
+
       {
         path: "/Login",
         element: <Login></Login>,

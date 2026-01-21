@@ -50,7 +50,7 @@ const Challenges = () => {
           <ChallengeCards key={challenges._id} challenges={challenges} />
         ))}
       </div>
-      {/* View All Button */}
+      {/* Home */}
       <div className="text-center mt-5">
         <Link
           to="/Home"

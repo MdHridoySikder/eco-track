@@ -65,8 +65,9 @@ const Navbar = () => {
                 Challenges
               </NavLink>
             </li>
+
             <li>
-              <NavLink to="/recentTips" className={linkClass}>
+              <NavLink to="/fourrecenttips" className={linkClass}>
                 recentTips
               </NavLink>
             </li>

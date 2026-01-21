@@ -4,22 +4,39 @@ import { Link } from "react-router";
 import { FaPlus } from "react-icons/fa";
 import ErrorPage from "./ErrorPage";
 import RecentTips from "./RecentTips";
+import FourRecentTips from "./FourRecentTips";
+import TipsCard from "./TipsCards";
+import UpcomingEvents from "./UpcomingEvents";
+import EventsCords from "./EventsCords";
 
 const Home = () => {
   const [homeChallenges, setHomeChallenges] = useState([]);
+  const [recentTips, setRecentTips] = useState([]);
+  const [events, setEvents] = useState([]);
 
-  fetch("http://localhost:3000/challenges/home")
-    .then((res) => {
-      if (!res.ok) {
-        throw new Error("Failed to fetch challenges");
-      }
-      return res.json();
-    })
-    .then((data) => setHomeChallenges(data))
-    .catch((err) => console.error(err.message));
+  // Challenges
+  useEffect(() => {
+    fetch("http://localhost:3000/challenges/home")
+      .then((res) => res.json())
+      .then((data) => setHomeChallenges(data));
+  }, []);
+
+  // 👉 Recent Tips (only 4)
+  useEffect(() => {
+    fetch("http://localhost:3000/tips?limit=4")
+      .then((res) => res.json())
+      .then((data) => setRecentTips(data.slice(0, 4)));
+  }, []);
+  // Events fetch
+  useEffect(() => {
+    fetch("http://localhost:3000/events")
+      .then((res) => res.json())
+      .then((data) => setEvents(data))
+      .catch((err) => console.error(err));
+  }, []);
 
   return (
-    <div>
+    <div className="bg-gradient-to-br from-green-100 via-white to-green-100 py-12 px-4">
       {/* Active Challenges 4cards */}
       <div className="mx-5">
         <h2 className="text-4xl md:text-5xl font-extrabold text-green-900 mb-6 relative inline-block">
@@ -28,7 +45,6 @@ const Home = () => {
           <span className="absolute left-0 -bottom-2 w-full h-1 bg-gradient-to-r from-lime-400 via-emerald-400 to-green-500 rounded-full opacity-50"></span>
         </h2>
 
-        {/* Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
           {homeChallenges.map((challenge) => (
             <ChallengeCards key={challenge._id} challenges={challenge} />
@@ -46,20 +62,52 @@ const Home = () => {
           </Link>
         </div>
       </div>
-      {/*  Recent Tips */}
+
       <div>
-        <h2 className="text-4xl md:text-5xl font-extrabold text-green-900 mb-6 relative inline-block ml-5">
-          Recent Tips
-          {/* subtle underline / highlight effect */}
+        {/* Recent Tips */}
+        <div className="mx-5 mb-10">
+          <h2 className="text-4xl md:text-5xl font-extrabold text-green-900 mb-6 relative inline-block">
+            Recent Tips
+            <span className="absolute left-0 -bottom-2 w-full h-1 bg-gradient-to-r from-lime-400 via-emerald-400 to-green-500 rounded-full opacity-50"></span>
+          </h2>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {recentTips.map((tip) => (
+              <TipsCard key={tip._id} tip={tip} />
+            ))}
+          </div>
+          <div className="text-center mb-10">
+            <Link
+              to="/recentTips"
+              className="mt-3 inline-flex  items-center justify-center gap-2 px-4 py-2 text-sm font-bold text-green-800 border-2 border-green-700 rounded-full hover:bg-green-700 hover:text-white transition-all duration-300"
+            >
+              View All Tips
+              <FaPlus className="w-3.5 h-3.5 group-hover:rotate-90 transition-transform duration-300" />
+            </Link>
+          </div>
+        </div>
+      </div>
+      {/* :Upcoming Events section */}
+      <div className="mx-5 mb-10">
+        <h2 className="text-4xl md:text-5xl font-extrabold text-green-900 mb-6 relative inline-block">
+          Upcoming Events
           <span className="absolute left-0 -bottom-2 w-full h-1 bg-gradient-to-r from-lime-400 via-emerald-400 to-green-500 rounded-full opacity-50"></span>
         </h2>
 
-        {/* Grid
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
-          {homeChallenges.map((challenge) => (
-            <ChallengeCards key={challenge._id} challenges={challenge} />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {events.slice(0, 4).map((event) => (
+            <EventsCords key={event._id} event={event} />
           ))}
-        </div> */}
+        </div>
+        <div className="text-center mb-10">
+          <Link
+            to="/events"
+            className="mt-3 inline-flex  items-center justify-center gap-2 px-4 py-2 text-sm font-bold text-green-800 border-2 border-green-700 rounded-full hover:bg-green-700 hover:text-white transition-all duration-300"
+          >
+            View All Events
+            <FaPlus className="w-3.5 h-3.5 group-hover:rotate-90 transition-transform duration-300" />
+          </Link>
+        </div>
       </div>
     </div>
   );
