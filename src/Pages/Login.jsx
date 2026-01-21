@@ -58,8 +58,6 @@ const Login = () => {
       .finally(() => setLoading(false));
   };
 
-  console.log(user);
-
   return (
     <div className="h-screen w-screen overflow-hidden bg-[#0b1f17] flex items-center justify-center px-4">
       {/* Background blobs */}

@@ -1,5 +1,5 @@
 import { Link } from "lucide";
-import { MoveLeft } from "lucide-react";
+
 import React from "react";
 import { FaEdit } from "react-icons/fa";
 import { useLoaderData } from "react-router";
@@ -186,24 +186,15 @@ const Update = () => {
         </div>
 
         <div className="justify-between  ">
-          {/* <Link
-            type="/challenges"
-            className="w-40  inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-bold text-green-800 border-2 border-green-700 rounded-full hover:bg-green-700 hover:text-white transition-all duration-300 group"
-          >
-            <MoveLeft className="w-4 h-5 group-hover:rotate-90 transition-transform duration-300" />
-            Go Back
-          </Link> */}
           <button
             type="submit"
-            className="w-40 ml-83  inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-bold text-green-800 border-2 border-green-700 rounded-full hover:bg-green-700 hover:text-white transition-all duration-300 group"
+            className="w-80 ml-50   inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-bold text-green-800 border-4 border-green-700 rounded-full hover:bg-green-700 hover:text-white transition-all duration-300 group"
           >
             Update
             <FaEdit className="w-4 h-4 group-hover:rotate-90 transition-transform duration-300" />
           </button>
         </div>
       </form>
-
-      <ToastContainer position="top-right" autoClose={3000} />
     </div>
   );
 };

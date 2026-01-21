@@ -51,14 +51,6 @@ const Footer = () => {
                 Challenges
               </NavLink>
             </li>
-            <li>
-              <NavLink
-                to="/my-activities"
-                className="hover:text-emerald-400 transition"
-              >
-                My Activities
-              </NavLink>
-            </li>
           </ul>
         </div>
 

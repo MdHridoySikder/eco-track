@@ -1,9 +1,11 @@
-import { UserPlus } from "lucide";
+import { LogOut } from "lucide";
 import React, { useContext } from "react";
 import { FaPlus, FaUserPlus } from "react-icons/fa";
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
 import { AuthContext } from "../Context/AuthContext";
 import { CopyPlus, HousePlus, Signpost } from "lucide-react";
+import { toast } from "react-toastify";
+import { LiaSignOutAltSolid } from "react-icons/lia";
 
 const Navbar = () => {
   const { user, signOutfunc, setUser, loading } = useContext(AuthContext);
@@ -16,7 +18,7 @@ const Navbar = () => {
     signOutfunc()
       .then(() => {
         setUser(null);
-        alert("Sign out successful");
+        toast.success("Sign out successful");
       })
       .catch((error) => {
         console.error(error);
@@ -64,11 +66,11 @@ const Navbar = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/my-activities" className={linkClass}>
-                <CopyPlus className="w-4 h-4" />
-                My Challenges
+              <NavLink to="/recentTips" className={linkClass}>
+                recentTips
               </NavLink>
             </li>
+
             {user ? (
               <li>
                 <NavLink to="/add-activities" className={linkClass}>
@@ -88,14 +90,11 @@ const Navbar = () => {
               {/* Avatar */}
               <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
                 <div className="w-10 rounded-full">
-                  <img
-                    src={user.photoURL || "https://i.ibb.co/2kR7N9K/user.png"}
-                    alt="user"
-                  />
+                  <img src={user.photoURL || "/logo.png"} alt="user" />
                 </div>
               </label>
 
-              {/* Dropdown */}
+              {/* Profile Dropdown*/}
               <ul
                 tabIndex={0}
                 className="mt-3 p-3 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
@@ -108,7 +107,17 @@ const Navbar = () => {
                 </li>
                 <div className="divider my-1"></div>
                 <li>
-                  <button onClick={handleSignOut} className="text-red-500">
+                  <Link to="/my-activities" className={linkClass}>
+                    <CopyPlus className="w-4 h-4" />
+                    My Activities
+                  </Link>
+                </li>
+                <div className="divider my-1"></div>
+                <li>
+                  <button
+                    onClick={handleSignOut}
+                    className="flex items-center justify-center gap-1 px-4 py-1 border-2 border-green-700 text-green-700 font-semibold rounded-sm transition-colors duration-300"
+                  >
                     Logout
                   </button>
                 </li>
@@ -166,16 +175,11 @@ const Navbar = () => {
                       className="btn btn-ghost btn-circle avatar"
                     >
                       <div className="w-10 rounded-full">
-                        <img
-                          src={
-                            user.photoURL || "https://i.ibb.co/2kR7N9K/user.png"
-                          }
-                          alt="user"
-                        />
+                        <img src={user.photoURL || "/logo.png"} alt="user" />
                       </div>
                     </label>
 
-                    {/* Dropdown */}
+                    {/*Profile Dropdown */}
                     <ul
                       tabIndex={0}
                       className="mt-3 p-3 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
@@ -185,6 +189,13 @@ const Navbar = () => {
                           {user.displayName || "No Name"}
                         </p>
                         <p className="text-xs text-gray-500">{user.email}</p>
+                      </li>
+                      <div className="divider my-1"></div>
+                      <li>
+                        <Link to="/my-activities" className={linkClass}>
+                          <CopyPlus className="w-4 h-4" />
+                          My Activities
+                        </Link>
                       </li>
                       <div className="divider my-1"></div>
                       <li>

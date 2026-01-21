@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useLoaderData } from "react-router";
 import ChallengeCards from "./ChallengeCards";
 import { FaPlus } from "react-icons/fa";
-import { ArrowBigLeft, ArrowBigLeftDash, MoveLeft } from "lucide-react";
+import { MoveLeft } from "lucide-react";
 
 const Challenges = () => {
   const data = useLoaderData();

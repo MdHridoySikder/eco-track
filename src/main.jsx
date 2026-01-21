@@ -17,6 +17,9 @@ import PrivateRoute from "./PrivateRouter/PrivaateRoute";
 import Update from "./Pages/Update";
 import AddActivities from "./Pages/AddActivities";
 import MyActivities from "./Pages/MyActivities/MyActivities";
+import ErrorPage from "./Pages/ErrorPage";
+import Loader from "./Component/Loader";
+import RecentTips from "./Pages/RecentTips";
 
 const router = createBrowserRouter([
   {
@@ -78,9 +81,13 @@ const router = createBrowserRouter([
           );
           return res.json();
         },
-        hydrateFallbackElement: <p>Loading update...</p>,
       },
 
+      {
+        path: "/recentTips",
+        element: <RecentTips></RecentTips>,
+        loader: () => fetch("http://localhost:3000/tips"),
+      },
       {
         path: "/Login",
         element: <Login></Login>,
@@ -89,6 +96,11 @@ const router = createBrowserRouter([
         path: "/Register",
         element: <Register></Register>,
       },
+
+      {
+        path: "*",
+        element: <ErrorPage></ErrorPage>,
+      },
     ],
   },
 ]);
@@ -96,15 +108,8 @@ const router = createBrowserRouter([
 createRoot(document.getElementById("root")).render(
   <AuthProvider>
     <StrictMode>
-      <RouterProvider
-        router={router}
-        fallbackElement={
-          <div className="text-center mt-20">
-            <span className="loading loading-spinner loading-lg"></span>
-          </div>
-        }
-      />
-      ,
+      <RouterProvider router={router} fallbackElement={<Loader></Loader>} />
+
       <ToastContainer />
     </StrictMode>
   </AuthProvider>,

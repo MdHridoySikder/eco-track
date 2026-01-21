@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import ChallengeCards from "./ChallengeCards";
 import { Link } from "react-router";
 import { FaPlus } from "react-icons/fa";
+import ErrorPage from "./ErrorPage";
+import RecentTips from "./RecentTips";
 
 const Home = () => {
   const [homeChallenges, setHomeChallenges] = useState([]);
@@ -51,6 +53,13 @@ const Home = () => {
           {/* subtle underline / highlight effect */}
           <span className="absolute left-0 -bottom-2 w-full h-1 bg-gradient-to-r from-lime-400 via-emerald-400 to-green-500 rounded-full opacity-50"></span>
         </h2>
+
+        {/* Grid
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+          {homeChallenges.map((challenge) => (
+            <ChallengeCards key={challenge._id} challenges={challenge} />
+          ))}
+        </div> */}
       </div>
     </div>
   );
