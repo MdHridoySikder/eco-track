@@ -20,6 +20,7 @@ import MyActivities from "./Pages/MyActivities/MyActivities";
 import ErrorPage from "./Pages/ErrorPage";
 import Loader from "./Component/Loader";
 import RecentTips from "./Pages/RecentTips";
+import UpcomingEvents from "./Pages/UpcomingEvents";
 
 const router = createBrowserRouter([
   {
@@ -87,6 +88,11 @@ const router = createBrowserRouter([
         path: "/recentTips",
         element: <RecentTips></RecentTips>,
         loader: () => fetch("http://localhost:3000/tips"),
+      },
+      {
+        path: "/events",
+        element: <UpcomingEvents></UpcomingEvents>,
+        loader: () => fetch("http://localhost:3000/events"),
       },
       {
         path: "/Login",

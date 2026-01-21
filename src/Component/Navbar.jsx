@@ -70,6 +70,11 @@ const Navbar = () => {
                 recentTips
               </NavLink>
             </li>
+            <li>
+              <NavLink to="/events" className={linkClass}>
+                events
+              </NavLink>
+            </li>
 
             {user ? (
               <li>
