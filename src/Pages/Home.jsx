@@ -13,6 +13,7 @@ import Slider from "./Slider";
 import ChallengeDetailsChart from "./ChallengeDetailsChart";
 import WhyGoGreen from "./WhyGoGreen";
 import HowItWorks from "./HowItWorks";
+import EcoTrackEnding from "./EcoTrackEnding";
 
 const Home = () => {
   const [homeChallenges, setHomeChallenges] = useState([]);
@@ -165,6 +166,10 @@ const Home = () => {
       {/* --------------HowItWork */}
       <div>
         <HowItWorks></HowItWorks>
+      </div>
+
+      <div>
+        <EcoTrackEnding></EcoTrackEnding>
       </div>
     </div>
   );

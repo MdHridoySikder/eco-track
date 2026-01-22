@@ -36,20 +36,28 @@ const Navbar = () => {
     via-white to-green-100 container mx-auto px-4 flex items-center justify-between"
       >
         {/* Left: Logo */}
-        <div className="navbar-start flex items-center gap-1">
-          <div className="w-10 h-10 rounded-full overflow-hidden border-2 border-green-700">
+        <div className="navbar-start flex items-center gap-3">
+          {/* Logo */}
+          <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-green-700 shadow-lg  transition-transform duration-300">
             <img
               src="/logo.png"
               alt="EcoTrack Logo"
               className="w-full h-full object-cover"
             />
+
+            <div className="absolute -top-2 -right-2 w-4 h-4 bg-gradient-to-tr from-lime-300 to-emerald-400 rounded-full animate-bounce-slow shadow-md"></div>
           </div>
 
-          {/* Logo Text */}
-          <NavLink to="/" className="text-2xl font-bold text-green-700">
+          <NavLink
+            to="/"
+            className="text-2xl font-extrabold bg-clip-text text-transparent 
+               bg-gradient-to-r from-green-600 via-lime-400 to-emerald-500
+               transition-transform duration-300 drop-shadow-lg"
+          >
             EcoTrack
           </NavLink>
         </div>
+
         {/* center */}
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px- gap-3">

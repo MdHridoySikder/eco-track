@@ -1,3 +1,4 @@
+import { HousePlus, Signpost } from "lucide-react";
 import React from "react";
 import { BiPhoneIncoming } from "react-icons/bi";
 import { FaFacebookF, FaInstagram, FaLinkedinIn } from "react-icons/fa";
@@ -37,20 +38,24 @@ const Footer = () => {
           <h4 className="text-lg font-bold text-emerald-500 mb-5">
             Quick Links
           </h4>
-          <ul className="space-y-2 text-sm">
-            <li>
-              <NavLink to="/" className="hover:text-emerald-400 transition">
-                Home
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to="/challenges"
-                className="hover:text-emerald-400 transition"
-              >
-                Challenges
-              </NavLink>
-            </li>
+
+          <ul className="menu menu-horizontal px- gap-3">
+            <div className="border-2 border-gray-100">
+              <li>
+                <Link to="/">
+                  <HousePlus className="w-4 h-4" />
+                  Home
+                </Link>
+              </li>
+            </div>
+            <div className="border-2 border-gray-100">
+              <li>
+                <Link to="/challenges">
+                  <Signpost className="w-4 h-4" />
+                  Challenges
+                </Link>
+              </li>
+            </div>
           </ul>
         </div>
 

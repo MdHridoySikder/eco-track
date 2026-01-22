@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
+import { Eye, EyeOff } from "lucide-react";
 import { Link, useNavigate, useLocation } from "react-router";
 import { GoogleAuthProvider } from "firebase/auth";
 import { toast } from "react-toastify";
@@ -7,6 +8,7 @@ import { Globe2, Leaf, Wind } from "lucide-react";
 
 const Login = () => {
   const [loading, setLoading] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const { signInWithEmailAndPasswordfunc, signInWithPopupfunc, user } =
     useContext(AuthContext);
@@ -94,14 +96,28 @@ const Login = () => {
               className="w-full px-4 py-2.5 rounded-full bg-black/30 text-white outline-none border border-emerald-400/30 focus:ring-2 focus:ring-lime-400"
             />
 
-            <input
-              type="password"
-              placeholder="Password"
-              autoComplete="password"
-              name="password"
-              required
-              className="w-full px-4 py-2.5 rounded-full bg-black/30 text-white outline-none border border-emerald-400/30 focus:ring-2 focus:ring-lime-400"
-            />
+            {/* Password with Eye Icon */}
+            <div className="relative">
+              <input
+                type={showPassword ? "text" : "password"}
+                placeholder="Password"
+                autoComplete="password"
+                name="password"
+                required
+                className="w-full px-4 py-2.5 rounded-full bg-black/30 text-white outline-none border border-emerald-400/30 focus:ring-2 focus:ring-lime-400"
+              />
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute top-1/2 right-3 -translate-y-1/2 text-green-300 hover:text-lime-400"
+              >
+                {showPassword ? (
+                  <EyeOff className="w-5 h-5" />
+                ) : (
+                  <Eye className="w-5 h-5" />
+                )}
+              </button>
+            </div>
 
             <div className="flex justify-between text-sm text-emerald-200">
               <Link className="hover:underline text-lime-300">

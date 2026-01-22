@@ -51,7 +51,7 @@ const AddActivities = () => {
 
         <form
           onSubmit={handleSubmit}
-          className="bg-white shadow-lg rounded-2xl p-8 space-y-5 border border-green-100"
+          className="bg-white shadow-lg rounded-2xl p-8 space-y-5 border border-green-500 "
         >
           {/* Title */}
           <div>

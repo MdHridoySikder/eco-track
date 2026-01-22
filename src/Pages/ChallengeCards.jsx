@@ -12,7 +12,7 @@ const ChallengeCards = ({ challenges }) => {
         {/* Image */}
         <div className="relative">
           <img
-            src={imageUrl || "/logo1.png"}
+            src={imageUrl || "/update.png"}
             alt={title}
             className="w-full h-44 object-cover"
           />

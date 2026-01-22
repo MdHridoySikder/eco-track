@@ -12,13 +12,12 @@ const ChallengesDetails = () => {
   const {
     _id,
     title,
+    imageUrl,
     category,
     description,
     duration,
     target,
     participants,
-
-    imageUrl,
   } = challenge;
   const [participantCount, setParticipantCount] = useState(participants);
 
@@ -99,19 +98,19 @@ const ChallengesDetails = () => {
   return (
     <div className="relative min-h-screen ">
       <div className=" max-w-3xl mx-auto mt-10 mb-10">
-        {/* Background Image */}
+        {/* Background Image
         <div
           className="absolute inset-0 bg-cover bg-center filter blur-sm"
           style={{
             backgroundImage: "url('/details.png')",
           }}
-        ></div>
+        ></div> */}
         <div className="group relative rounded-2xl overflow-hidden bg-gradient-to-br from-emerald-500 via-green-400 to-lime-300 p-[2px] shadow-xl">
           <div className="relative bg-white/90 backdrop-blur-xl rounded-2xl overflow-hidden">
             {/* Image */}
             <div className="relative">
               <img
-                src={imageUrl || "/logo1.png"}
+                src={imageUrl}
                 alt={title}
                 className="w-full h-64 object-cover"
               />
