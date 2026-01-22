@@ -4,12 +4,20 @@ import Footer from "../Component/Footer";
 import Navbar from "../Component/Navbar";
 
 const RootLayOut = () => {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(() => {
+    return !sessionStorage.getItem("firstLoadDone");
+  });
 
   useEffect(() => {
-    const timer = setTimeout(() => setLoading(false), 2000);
-    return () => clearTimeout(timer);
-  }, []);
+    if (loading) {
+      const timer = setTimeout(() => {
+        setLoading(false);
+        sessionStorage.setItem("firstLoadDone", "true");
+      }, 2000);
+
+      return () => clearTimeout(timer);
+    }
+  }, [loading]);
 
   return (
     <div className="flex flex-col min-h-screen overflow-x-hidden">
