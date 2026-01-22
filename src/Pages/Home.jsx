@@ -10,6 +10,9 @@ import UpcomingEvents from "./UpcomingEvents";
 import EventsCords from "./EventsCords";
 import { MoveRight } from "lucide-react";
 import Slider from "./Slider";
+import ChallengeDetailsChart from "./ChallengeDetailsChart";
+import WhyGoGreen from "./WhyGoGreen";
+import HowItWorks from "./HowItWorks";
 
 const Home = () => {
   const [homeChallenges, setHomeChallenges] = useState([]);
@@ -41,6 +44,39 @@ const Home = () => {
     <div>
       <div>
         <Slider></Slider>
+      </div>
+      {/* Hero */}
+      <div className="relative pt-5 bg-gradient-to-br from-green-300 via-emerald-100 to-green- overflow-hidden flex items-center justify-center px-6">
+        {/* Main Content */}
+        <div className="relative z-10 text-center max-w-3xl">
+          {/* Headline */}
+          <h1
+            className="text-6xl md:text-7xl lg:text-8xl font-extrabold tracking-tight
+                 bg-gradient-to-r from-emerald-600 via-green-500 to-lime-600
+                 bg-clip-text text-transparent drop-shadow-2xl"
+          >
+            EcoTrack
+          </h1>
+
+          {/* Decorative underline */}
+          <div
+            className="mx-auto w-32 h-1 rounded-full
+                 bg-gradient-to-r from-green-400 via-emerald-500 to-lime-400
+                 shadow-lg"
+          ></div>
+
+          {/* Subheading */}
+          <p className="text-lg md:text-xl text-gray-700/90 leading-relaxed max-w-xl mx-auto mt-1">
+            A smart community platform for sustainable living —
+            <span className="block font-semibold text-emerald-700/90">
+              Join eco-challenges, track your impact, and discover everyday
+              green habits.
+            </span>
+            <span className="block font-medium text-green-600/80 italic pb-5">
+              Small actions. Real impact. Lasting change.
+            </span>
+          </p>
+        </div>
       </div>
 
       <div className="bg-gradient-to-br from-green-100 via-white to-green-100 py-5 px-4">
@@ -116,6 +152,19 @@ const Home = () => {
             </Link>
           </div>
         </div>
+      </div>
+      {/*----------------- Rechart */}
+      <div>
+        <ChallengeDetailsChart></ChallengeDetailsChart>
+      </div>
+      {/* Why Go Green */}
+      <div>
+        <WhyGoGreen></WhyGoGreen>
+      </div>
+
+      {/* --------------HowItWork */}
+      <div>
+        <HowItWorks></HowItWorks>
       </div>
     </div>
   );

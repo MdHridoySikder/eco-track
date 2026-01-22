@@ -28,7 +28,7 @@ const data = [
 
 const ChallengeDetailsChart = () => {
   return (
-    <div className="bg-white rounded-2xl shadow-xl p-6 md:p-8 border border-emerald-100">
+    <div className="bg-white  shadow-xl p-6 md:p-8 border border-emerald-100 bg-gradient-to-br from-green-50 via-emerald-100 to-green- overflow-hidden ">
       {/* Header */}
       <div className="flex flex-col md:flex-row justify-between items-center mb-8">
         <h2 className="text-3xl md:text-3xl font-bold text-green-800 ml-10">
@@ -102,24 +102,38 @@ const ChallengeDetailsChart = () => {
       </div>
 
       {/* Stats Row */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
-        <div className="bg-emerald-50 p-6 rounded-xl text-center border border-emerald-100">
-          <p className="text-sm text-green-700 font-medium mb-1">Days Active</p>
-          <p className="text-3xl font-bold text-emerald-800">12</p>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10 max-w-5xl mx-auto px-4">
+        {/* Days Active */}
+        <div className="bg-emerald-50 p-6 rounded-2xl text-center border border-emerald-100 shadow-md hover:shadow-xl transition-shadow duration-500">
+          <p className="text-sm text-green-700 font-semibold mb-2 uppercase tracking-wider">
+            Days Active
+          </p>
+          <p className="text-4xl md:text-5xl font-extrabold text-emerald-800 drop-shadow-sm animate-pulse">
+            12
+          </p>
+          <div className="mt-2 h-1 w-16 mx-auto bg-gradient-to-r from-green-400 via-emerald-500 to-lime-400 rounded-full"></div>
         </div>
 
-        <div className="bg-emerald-50 p-6 rounded-xl text-center border border-emerald-100">
-          <p className="text-sm text-emerald-700 font-medium mb-1">
+        {/* Plastic Saved */}
+        <div className="bg-emerald-50 p-6 rounded-2xl text-center border border-emerald-100 shadow-md hover:shadow-xl transition-shadow duration-500">
+          <p className="text-sm text-green-700 font-semibold mb-2 uppercase tracking-wider">
             Plastic Saved
           </p>
-          <p className="text-3xl font-bold text-emerald-800">8 g</p>
+          <p className="text-4xl md:text-5xl font-extrabold text-emerald-800 drop-shadow-sm animate-pulse">
+            8g
+          </p>
+          <div className="mt-2 h-1 w-16 mx-auto bg-gradient-to-r from-green-400 via-emerald-500 to-lime-400 rounded-full"></div>
         </div>
 
-        <div className="bg-emerald-50 p-6 rounded-xl text-center border border-emerald-100">
-          <p className="text-sm text-emerald-700 font-medium mb-1">
+        {/* CO₂ Reduced */}
+        <div className="bg-emerald-50 p-6 rounded-2xl text-center border border-emerald-100 shadow-md hover:shadow-xl transition-shadow duration-500">
+          <p className="text-sm text-green-700 font-semibold mb-2 uppercase tracking-wider">
             CO₂ Reduced
           </p>
-          <p className="text-3xl font-bold text-emerald-800">5 kg</p>
+          <p className="text-4xl md:text-5xl font-extrabold text-emerald-800 drop-shadow-sm animate-pulse">
+            5kg
+          </p>
+          <div className="mt-2 h-1 w-16 mx-auto bg-gradient-to-r from-green-400 via-emerald-500 to-lime-400 rounded-full"></div>
         </div>
       </div>
     </div>
