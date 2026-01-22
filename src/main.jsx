@@ -22,7 +22,6 @@ import Loader from "./Component/Loader";
 import RecentTips from "./Pages/RecentTips";
 import UpcomingEvents from "./Pages/UpcomingEvents";
 
-import FourRecentTips from "./Pages/FourRecentTips";
 import Slider from "./Pages/Slider";
 
 const router = createBrowserRouter([
@@ -45,14 +44,15 @@ const router = createBrowserRouter([
       {
         path: "/challenges",
         element: <Challenges></Challenges>,
-        loader: () => fetch("http://localhost:3000/challenges"),
+        loader: () =>
+          fetch("https://eco-track-server-alpha.vercel.app/challenges"),
       },
       {
         path: "/ChallengesDetails/:id",
         element: <ChallengesDetails />,
         loader: async ({ params }) => {
           const res = await fetch(
-            `http://localhost:3000/challenges/${params.id}`,
+            `https://eco-track-server-alpha.vercel.app/challenges/${params.id}`,
           );
           if (!res.ok) {
             throw new Response("Not Found", { status: 404 });
@@ -85,7 +85,7 @@ const router = createBrowserRouter([
         ),
         loader: async ({ params }) => {
           const res = await fetch(
-            `http://localhost:3000/challenges/${params.id}`,
+            `https://eco-track-server-alpha.vercel.app/challenges/${params.id}`,
           );
           return res.json();
         },
@@ -94,12 +94,12 @@ const router = createBrowserRouter([
       {
         path: "/recentTips",
         element: <RecentTips></RecentTips>,
-        loader: () => fetch("http://localhost:3000/tips"),
+        loader: () => fetch("https://eco-track-server-alpha.vercel.app/tips"),
       },
       {
         path: "/events",
         element: <UpcomingEvents></UpcomingEvents>,
-        loader: () => fetch("http://localhost:3000/events"),
+        loader: () => fetch("https://eco-track-server-alpha.vercel.app/events"),
       },
 
       {

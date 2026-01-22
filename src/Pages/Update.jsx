@@ -42,7 +42,7 @@ const Update = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    fetch(`http://localhost:3000/challenges/${data._id}`, {
+    fetch(`https://eco-track-server-alpha.vercel.app/challenges/${data._id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({

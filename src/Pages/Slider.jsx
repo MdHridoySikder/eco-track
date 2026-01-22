@@ -69,7 +69,7 @@ const Slider = () => {
                 {slide.title}
               </h3>
 
-              <p className="text-gray-700 text-sm md:text-base truncate">
+              <p className="text-gray-800 text-sm md:text-base truncate">
                 {slide.description || slide.content}
               </p>
 
@@ -124,13 +124,13 @@ const Slider = () => {
 
               {slide.type === "challenge" && (
                 <>
-                  <p className="text-xs text-gray-600 mt-1">
+                  <p className="text-xs text-gray-800 mt-1">
                     Duration: {slide.duration} days
                   </p>
-                  <p className="text-xs text-gray-600">
+                  <p className="text-xs text-gray-800">
                     Target: {slide.target}
                   </p>
-                  <p className="text-xs text-gray-600">
+                  <p className="text-xs text-gray-800">
                     Start:{" "}
                     <time dateTime={slide.startDate}>
                       {new Date(slide.startDate).toLocaleDateString("en-US", {
@@ -141,7 +141,7 @@ const Slider = () => {
                       })}
                     </time>
                   </p>
-                  <p className="text-xs text-gray-600">
+                  <p className="text-xs text-gray-800">
                     End:{" "}
                     <time dateTime={slide.endDate}>
                       {new Date(slide.endDate).toLocaleDateString("en-US", {
@@ -163,12 +163,12 @@ const Slider = () => {
                       ? "/recentTips"
                       : "/challenges"
                 }
-                className="mt-2 block w-full py-2 bg-gradient-to-r from-green-500 to-green-700 text-white font-semibold rounded-full hover:scale-105 hover:shadow-2xl transition-all duration-300 text-center text-sm md:text-base"
+                className="mt-2 block w-full py-2 bg-gradient-to-r from-green-400 to-green-600 text-white font-semibold rounded-full hover:scale-105 hover:shadow-2xl transition-all duration-300 text-center text-sm md:text-base"
               >
                 {slide.type === "event"
-                  ? "Join Event"
+                  ? "Get Started"
                   : slide.type === "tip"
-                    ? "Read Tip"
+                    ? "Get Started"
                     : "Get Started"}
               </Link>
             </div>

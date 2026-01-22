@@ -24,7 +24,7 @@ const AddActivities = () => {
       createdBy: user.email,
     };
 
-    fetch("http://localhost:3000/challenges", {
+    fetch("https://eco-track-server-alpha.vercel.app/challenges", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(formData),

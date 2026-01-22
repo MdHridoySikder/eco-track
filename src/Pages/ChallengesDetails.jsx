@@ -43,7 +43,7 @@ const ChallengesDetails = () => {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:3000/challenges/${_id}`, {
+        fetch(`https://eco-track-server-alpha.vercel.app/challenges/${_id}`, {
           method: "DELETE",
           headers: { "Content-Type": "application/json" },
         })
@@ -78,7 +78,7 @@ const ChallengesDetails = () => {
       return;
     }
 
-    fetch(`http://localhost:3000/challenges/${_id}`, {
+    fetch(`https://eco-track-server-alpha.vercel.app/challenges/${_id}`, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
     })

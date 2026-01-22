@@ -22,20 +22,20 @@ const Home = () => {
 
   // Challenges
   useEffect(() => {
-    fetch("http://localhost:3000/challenges/home")
+    fetch("https://eco-track-server-alpha.vercel.app/challenges/home")
       .then((res) => res.json())
       .then((data) => setHomeChallenges(data));
   }, []);
 
   // 👉 Recent Tips (only 4)
   useEffect(() => {
-    fetch("http://localhost:3000/tips?limit=4")
+    fetch("https://eco-track-server-alpha.vercel.app/tips?limit=4")
       .then((res) => res.json())
       .then((data) => setRecentTips(data.slice(0, 4)));
   }, []);
   // Events fetch
   useEffect(() => {
-    fetch("http://localhost:3000/events")
+    fetch("https://eco-track-server-alpha.vercel.app/events")
       .then((res) => res.json())
       .then((data) => setEvents(data))
       .catch((err) => console.error(err));
