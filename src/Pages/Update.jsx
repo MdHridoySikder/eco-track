@@ -185,10 +185,20 @@ const Update = () => {
           />
         </div>
 
-        <div className="justify-between  ">
+        <div className="flex justify-between mt-6">
+          {/* Go Back */}
+          <button
+            type="button"
+            onClick={() => (window.location.href = `/Home`)}
+            className="px-5 py-2 text-sm font-semibold text-green-800 border-2 border-green-700 rounded-full hover:bg-green-700 hover:text-white transition-all duration-300 inline-flex items-center gap-2"
+          >
+            Go Back
+          </button>
+
+          {/* Submit / Update */}
           <button
             type="submit"
-            className="w-80 ml-50   inline-flex items-center justify-center gap-2 px-6 py-3 text-sm font-bold text-green-800 border-4 border-green-700 rounded-full hover:bg-green-700 hover:text-white transition-all duration-300 group"
+            className="px-5 py-2 text-sm font-semibold text-green-800 border-2 border-green-700 rounded-full hover:bg-green-700 hover:text-white transition-all duration-300 inline-flex items-center gap-2"
           >
             Update
             <FaEdit className="w-4 h-4 group-hover:rotate-90 transition-transform duration-300" />

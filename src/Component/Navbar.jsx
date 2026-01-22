@@ -53,37 +53,32 @@ const Navbar = () => {
         {/* center */}
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px- gap-3">
-            <li>
-              <NavLink to="/" className={linkClass}>
-                <HousePlus className="w-4 h-4" />
-                Home
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/challenges" className={linkClass}>
-                <Signpost className="w-4 h-4" />
-                Challenges
-              </NavLink>
-            </li>
-
-            <li>
-              <NavLink to="/fourrecenttips" className={linkClass}>
-                recentTips
-              </NavLink>
-            </li>
-            <li>
-              <NavLink to="/events" className={linkClass}>
-                events
-              </NavLink>
-            </li>
-
-            {user ? (
+            <div className="border-2 border-gray-100">
               <li>
-                <NavLink to="/add-activities" className={linkClass}>
-                  <CopyPlus className="w-4 h-4" />
-                  Add Challenges
+                <NavLink to="/" className={linkClass}>
+                  <HousePlus className="w-4 h-4" />
+                  Home
                 </NavLink>
               </li>
+            </div>
+            <div className="border-2 border-gray-100">
+              <li>
+                <NavLink to="/challenges" className={linkClass}>
+                  <Signpost className="w-4 h-4" />
+                  Challenges
+                </NavLink>
+              </li>
+            </div>
+
+            {user ? (
+              <div className="border-2 border-gray-100">
+                <li>
+                  <NavLink to="/add-activities" className={linkClass}>
+                    <CopyPlus className="w-4 h-4" />
+                    Add Challenges
+                  </NavLink>
+                </li>
+              </div>
             ) : null}
           </ul>
         </div>

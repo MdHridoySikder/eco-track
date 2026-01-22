@@ -23,6 +23,7 @@ import RecentTips from "./Pages/RecentTips";
 import UpcomingEvents from "./Pages/UpcomingEvents";
 
 import FourRecentTips from "./Pages/FourRecentTips";
+import Slider from "./Pages/Slider";
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
       {
         path: "/Home",
         element: <Home></Home>,
+      },
+      {
+        path: "/slider",
+        element: <Slider></Slider>,
       },
       {
         path: "/challenges",
